@@ -34,6 +34,7 @@
   <description>Avro core components</description>
   <packaging>bundle</packaging>
 
+  <!--
   <properties>
     <osgi.import>
       !org.apache.avro*,
@@ -44,6 +45,7 @@
     </osgi.import>
     <osgi.export>org.apache.avro*;version="${project.version}"</osgi.export>
   </properties>
+  -->
 
   <build>
     <resources>

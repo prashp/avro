@@ -46,7 +46,7 @@ public class JacksonUtils {
       return null;
     }
     try {
-      TokenBuffer generator = new TokenBuffer(new ObjectMapper());
+      TokenBuffer generator = new TokenBuffer(new ObjectMapper(), true);
       toJson(datum, generator);
       return new ObjectMapper().readTree(generator.asParser());
     } catch (IOException e) {
@@ -112,6 +112,8 @@ public class JacksonUtils {
       }
     } else if (jsonNode.isLong()) {
       return jsonNode.asLong();
+    } else if (jsonNode.isFloat()) {
+      return jsonNode.asDouble();
     } else if (jsonNode.isDouble()) {
       if (schema == null || schema.getType().equals(Schema.Type.DOUBLE)) {
         return jsonNode.asDouble();

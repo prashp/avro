@@ -24,20 +24,11 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Collections;
 
+import com.fasterxml.jackson.databind.node.*;
 import org.apache.avro.JsonProperties;
 import org.apache.avro.Schema;
 import org.apache.avro.SchemaBuilder;
 import org.junit.Test;
-
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.BooleanNode;
-import com.fasterxml.jackson.databind.node.DoubleNode;
-import com.fasterxml.jackson.databind.node.IntNode;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.LongNode;
-import com.fasterxml.jackson.databind.node.NullNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
 
 public class TestJacksonUtils {
 
@@ -52,7 +43,7 @@ public class TestJacksonUtils {
     assertEquals(BooleanNode.TRUE, toJsonNode(true));
     assertEquals(IntNode.valueOf(1), toJsonNode(1));
     assertEquals(LongNode.valueOf(2), toJsonNode(2L));
-    assertEquals(DoubleNode.valueOf(1.0), toJsonNode(1.0f));
+    assertEquals(FloatNode.valueOf(1.0f), toJsonNode(1.0f));
     assertEquals(DoubleNode.valueOf(2.0), toJsonNode(2.0));
     assertEquals(TextNode.valueOf("\u0001\u0002"), toJsonNode(new byte[] { 1, 2 }));
     assertEquals(TextNode.valueOf("a"), toJsonNode("a"));

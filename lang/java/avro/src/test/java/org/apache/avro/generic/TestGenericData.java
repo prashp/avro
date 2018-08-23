@@ -81,7 +81,7 @@ public class TestGenericData {
   @Test(expected=AvroRuntimeException.class)
   public void testRecordCreateEmptySchema() throws Exception {
     Schema s = Schema.createRecord("schemaName", "schemaDoc", "namespace", false);
-    Record r = new GenericData.Record(s);
+    GenericData.Record r = new GenericData.Record(s);
   }
 
   @Test(expected=AvroRuntimeException.class)
@@ -102,7 +102,7 @@ public class TestGenericData {
     List<Schema.Field> fields = new ArrayList<>();
     fields.add(new Schema.Field("someFieldName", s, "docs", null));
     s.setFields(fields);
-    Record r = new GenericData.Record(s);
+    GenericData.Record r = new GenericData.Record(s);
     r.put("invalidFieldName", "someValue");
   }
 
@@ -372,11 +372,11 @@ public class TestGenericData {
     BinaryEncoder b1Enc = EncoderFactory.get().binaryEncoder(b1, null);
     BinaryEncoder b2Enc = EncoderFactory.get().binaryEncoder(b2, null);
     // Prepare two different datums
-    Record testDatum1 = new Record(record);
+    GenericData.Record testDatum1 = new GenericData.Record(record);
     testDatum1.put(0, 1);
-    Record testDatum2 = new Record(record);
+    GenericData.Record testDatum2 = new GenericData.Record(record);
     testDatum2.put(0, 2);
-    GenericDatumWriter<Record> gWriter = new GenericDatumWriter<>(record);
+    GenericDatumWriter<GenericData.Record> gWriter = new GenericDatumWriter<>(record);
     Integer start1 = 0, start2 = 0;
     try {
       // Write two datums in each stream
@@ -557,7 +557,7 @@ public class TestGenericData {
     Schema schema = Schema.createRecord("Foo", "test", "mytest", false);
     schema.setFields(fields);
 
-    Record testRecord = new Record(schema);
+    GenericData.Record testRecord = new GenericData.Record(schema);
 
     testRecord.put("nullstring1", null);
     testRecord.put("nullstring2", null);
@@ -640,11 +640,11 @@ public class TestGenericData {
 
     Schema schema = idRef.addToSchema(parentSchema);
 
-    Record parent = new Record(schema);
+    GenericData.Record parent = new GenericData.Record(schema);
     parent.put("id", 1L);
     parent.put("p", "parent data!");
 
-    Record child = new Record(childSchema);
+    GenericData.Record child = new GenericData.Record(childSchema);
     child.put("c", "child data!");
     child.put("parent", parent);
 

@@ -42,8 +42,6 @@ import org.apache.avro.LogicalTypes;
 import org.apache.avro.data.TimeConversions.DateConversion;
 import org.apache.avro.data.TimeConversions.TimeConversion;
 import org.apache.avro.data.TimeConversions.TimestampConversion;
-import org.apache.avro.specific.SpecificData;
-import org.codehaus.jackson.JsonNode;
 
 import org.apache.avro.JsonProperties;
 import org.apache.avro.Protocol;

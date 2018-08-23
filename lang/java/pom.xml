@@ -38,7 +38,7 @@
 
     <!-- version properties for dependencies -->
     <hadoop2.version>2.7.3</hadoop2.version>
-    <jackson.version>2.7.0</jackson.version>
+    <jackson.version>2.9.6</jackson.version>
     <jetty.version>9.4.6.v20170531</jetty.version>
     <jopt-simple.version>5.0.3</jopt-simple.version>
     <junit.version>4.12</junit.version>
@@ -289,12 +289,14 @@
           <instructions>
             <Bundle-Name>${project.name}</Bundle-Name>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <!--
             <Export-Package>${osgi.export}</Export-Package>
             <Import-Package>${osgi.import}</Import-Package>
             <DynamicImport-Package>${osgi.dynamic.import}</DynamicImport-Package>
             <Private-Package>${osgi.private}</Private-Package>
             <Require-Bundle>${osgi.bundles}</Require-Bundle>
             <Bundle-Activator>${osgi.activator}</Bundle-Activator>
+            -->
           </instructions>
           <supportedProjectTypes>
             <supportedProjectType>bundle</supportedProjectType>

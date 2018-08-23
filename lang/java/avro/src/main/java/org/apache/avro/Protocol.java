@@ -497,7 +497,7 @@ public class Protocol extends JsonProperties {
           newField.addAlias(alias);
       }
 
-      Iterator<String> i = field.getFieldNames();
+      Iterator<String> i = field.fieldNames();
       while (i.hasNext()) {                       // add properties
         String prop = i.next();
         if (!FIELD_RESERVED.contains(prop))      // ignore reserved
